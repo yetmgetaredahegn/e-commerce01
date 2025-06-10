@@ -6,11 +6,7 @@ from store.models import Product
 
 
 def say_hello(request):
-    # try:
-    #     product = Product.objects.get(pk=0)
-    # except ObjectDoesNotExist:
-    #     pass
-    queryset = Product.objects.filter(pk=0).first()  #better way
+    queryset = Product.objects.filter(unit_price__range=(20,30)) 
 
    
-    return render(request, 'hello.html', {'name': 'Mosh'})
+    return render(request, 'hello.html', {'name': 'Mosh', 'products': list(queryset)})

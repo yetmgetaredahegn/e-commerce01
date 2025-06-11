@@ -6,7 +6,9 @@ from store.models import Product, OrderItem
 
 
 def say_hello(request):
-   queryset = Product.objects.filter(id__in=OrderItem.objects.values('product_id').distinct().order_by('product__title'))
+   #select_related(1) 1-1 1-n
+   # prefetch_related(n) n-n
+   queryset = Product.objects.prefetch_related("promotions").select_related('collection').all()
     
    
    return render(request, 'hello.html', {'name': 'Mosh', 'products': list(queryset)})

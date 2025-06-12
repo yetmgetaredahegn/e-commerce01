@@ -5,7 +5,7 @@ from store.models import Product, OrderItem, Order
 
 
 def say_hello(request):
-   result = Product.objects.aggregate(count = Count('id'), min_price=Min('unit_price'))
+   result = OrderItem.objects.filter(product_id=1).aggregate(unit_sold= Sum('quantity'))
     
    
    return render(request, 'hello.html', {'name': 'Yetmgeta', 'result': result})

@@ -4,10 +4,9 @@ from store.models import Product, Collection,OrderItem,Order,Customer
 from tags.models import TaggedItem
 
 def say_hello(request):
-   # collection = Collection.objects.get(pk=11) #Collection(pk=11) possible but orm of django will still update the ones thats is not mentioned like title to null
-   # collection.featured_product = None
-   # collection.save()
+   collection = Collection(pk=11)
+   collection.delete()
 
-   Collection.objects.filter(pk=11).update(featured_product=None)
+   Collection.objects.filter(id__gt=5).delete()
     
    return render(request, 'hello.html', {'name': 'Yetmgeta'})

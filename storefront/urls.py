@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import debug_toolbar
+
+admin.AdminSite.site_header = 'Storefront Admin'
+admin.AdminSite.index_title = 'Admin'
 # hello
 urlpatterns = [
     path('admin/', admin.site.urls),

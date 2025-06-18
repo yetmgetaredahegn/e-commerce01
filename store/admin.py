@@ -1,4 +1,3 @@
-from urllib.request import urlopen, urlretrieve
 from django.contrib import admin, messages
 from django.db.models import Count
 from django.urls import reverse
@@ -17,6 +16,7 @@ class InventoryFilter(admin.SimpleListFilter):
     def queryset(self, request, queryset):
         if self.value() == '<10':
             return queryset.filter(inventory__lt=10)
+
 
 
 @admin.register(models.Product)

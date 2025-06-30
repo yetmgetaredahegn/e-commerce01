@@ -5,7 +5,6 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django.utils.html import format_html, urlencode
 from . import models
-from core.models import User
 
 # custom filters
 class InventoryFilter(admin.SimpleListFilter):
@@ -54,13 +53,11 @@ class ProductAdmin(admin.ModelAdmin):
         #    messages.ERROR
        )
 
-# class UserInline(admin.TabularInline):
-#     model = get_user_model()
+
 
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     autocomplete_fields = ['user']
-    # inlines = [UserInline]
     list_display = ['first_name','last_name', 'membership', 'orders_count']
     list_editable = ['membership']
     list_per_page = 10

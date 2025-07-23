@@ -189,3 +189,5 @@ DEFAULT_FROM_EMAIL = 'from@yetm.com'
 ADMINS = [
     ('Yetu','admin@yetu.com')
 ]
+
+CELERY_BROKER_URL = "redis://localhost:6379/1"

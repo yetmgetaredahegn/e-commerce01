@@ -23,6 +23,11 @@ flower = "*"
 autopep8 = "*"
 pytest = "*"
 pytest-django = "*"
+watchdog = "*"
+model-bakery = "*"
 
 [requires]
 python_version = "3.11"
+
+[scripts]
+watch = "watchmedo shell-command --patterns='*.py' --recursive --command='clear; pytest'"

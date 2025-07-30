@@ -27,9 +27,14 @@ CACHES = {
     }
 }
 
+# Use getenv for values that can have defaults
 EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp-relay.brevo.com')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+
+# Use environ for secrets that must exist in production otherwise it crashes
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']        # Required (Brevo login)
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']  # Required (Brevo password)
+
+# Default sender email (fallback provided)
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'yetmgeta.tech@gmail.com')

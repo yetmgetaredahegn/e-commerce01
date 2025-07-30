@@ -8,7 +8,7 @@ DEBUG = False
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['e-commerce01-jzwl.onrender.com']
 
 DATABASES = {
     'default': dj_database_url.parse(config('DATABASE_URL'))

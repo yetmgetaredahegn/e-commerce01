@@ -21,8 +21,10 @@ flower = "*"
 django-redis = "*"
 whitenoise = "*"
 gunicorn = "*"
-dj-database-url = "*"
 psycopg2-binary = "*"
+python-decouple = "*"
+dj-database-url = "*"
+django-silk = "*"
 
 [dev-packages]
 autopep8 = "*"

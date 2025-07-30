@@ -11,7 +11,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 ALLOWED_HOSTS = ['.onrender.com']
 
 DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'), conn_max_age=600)
+    'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
 REDIS_URL = os.environ['REDIS_URL']

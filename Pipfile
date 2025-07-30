@@ -22,9 +22,9 @@ django-redis = "*"
 whitenoise = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
-python-decouple = "*"
 dj-database-url = "*"
 django-silk = "*"
+python-decouple = "*"
 
 [dev-packages]
 autopep8 = "*"
